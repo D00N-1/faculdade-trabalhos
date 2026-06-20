@@ -1,0 +1,111 @@
+# Diagrama de Classe - Aula 12.2
+
+## Descrição
+
+Este programa demonstra os conceitos de **Classe Abstrata**, **Herança** e **Polimorfismo** em C++.
+
+A classe `Forma` representa uma forma geométrica genérica e possui um método virtual puro `area()`, que deve ser implementado pelas classes derivadas.
+
+As classes `Retangulo` e `Circulo` herdam da classe `Forma` e implementam o cálculo da área de acordo com suas fórmulas.
+
+---
+
+# Classes
+
+## Classe: Forma (Abstrata)
+
+### Métodos
+
+| Visibilidade | Método | Retorno |
+|--------------|--------|---------|
+| + | area() const | double |
+| + | ~Forma() | Destrutor |
+
+---
+
+## Classe: Retangulo
+
+### Atributos
+
+| Visibilidade | Nome | Tipo |
+|--------------|------|------|
+| - | largura | double |
+| - | altura | double |
+
+### Métodos
+
+| Visibilidade | Método | Retorno |
+|--------------|--------|---------|
+| + | Retangulo(double l, double a) | Construtor |
+| + | area() const | double |
+
+---
+
+## Classe: Circulo
+
+### Atributos
+
+| Visibilidade | Nome | Tipo |
+|--------------|------|------|
+| - | raio | double |
+
+### Métodos
+
+| Visibilidade | Método | Retorno |
+|--------------|--------|---------|
+| + | Circulo(double r) | Construtor |
+| + | area() const | double |
+
+---
+
+# Diagrama UML
+
+```text
+                     +----------------------+
+                     |       Forma          |
+                     |    <<Abstract>>      |
+                     +----------------------+
+                     +----------------------+
+                     | + area() : double=0 |
+                     | + ~Forma()          |
+                     +----------------------+
+                           ▲
+                 ┌─────────┴─────────┐
+                 │                   │
+      +-------------------+   +------------------+
+      |    Retangulo      |   |     Circulo      |
+      +-------------------+   +------------------+
+      | - largura: double |   | - raio: double  |
+      | - altura: double  |   +------------------+
+      +-------------------+   | + Circulo(r)    |
+      | + Retangulo(l,a)  |   | + area():double |
+      | + area(): double  |   +------------------+
+      +-------------------+
+```
+
+---
+
+# Conceitos de Programação Orientada a Objetos
+
+## Classe Abstrata
+A classe **Forma** é abstrata porque possui o método virtual puro `area()`. Isso impede que ela seja instanciada diretamente.
+
+## Herança
+As classes **Retangulo** e **Circulo** herdam da classe **Forma**, reutilizando sua estrutura e implementando o método obrigatório.
+
+## Polimorfismo
+O programa utiliza ponteiros do tipo **Forma** para acessar objetos das classes **Retangulo** e **Circulo**, permitindo que o método `area()` execute comportamentos diferentes dependendo do objeto.
+
+## Encapsulamento
+Os atributos `largura`, `altura` e `raio` são privados, protegendo os dados internos das classes.
+
+---
+
+# Resultado Esperado
+
+```text
+--- Calculador de Areas ---
+
+Area do Retangulo: 20 m²
+Area do Circulo: 28.2743 m²
+```
