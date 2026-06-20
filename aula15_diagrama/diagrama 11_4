@@ -1,0 +1,102 @@
+# Diagrama de Classe - Aula 11.4
+
+## Descrição
+
+Este exemplo demonstra os conceitos de **Herança**, **Polimorfismo** e **Classe Abstrata** em C++.
+
+A classe `Veiculo` é uma classe abstrata que possui um método virtual puro `exibirInformacoes()`. As classes `Carro` e `Moto` herdam de `Veiculo` e implementam esse método, exibindo suas informações específicas.
+
+---
+
+# Classes
+
+## Classe: Veiculo (Abstrata)
+
+### Métodos
+
+| Visibilidade | Método | Retorno |
+|--------------|--------|---------|
+| + | exibirInformacoes() const | void |
+| + | ~Veiculo() | Destrutor |
+
+---
+
+## Classe: Carro
+
+### Herança
+
+- Herda da classe **Veiculo**
+
+### Métodos
+
+| Visibilidade | Método | Retorno |
+|--------------|--------|---------|
+| + | exibirInformacoes() const | void |
+
+---
+
+## Classe: Moto
+
+### Herança
+
+- Herda da classe **Veiculo**
+
+### Métodos
+
+| Visibilidade | Método | Retorno |
+|--------------|--------|---------|
+| + | exibirInformacoes() const | void |
+
+---
+
+# Diagrama UML
+
+```text
+                    +----------------------+
+                    |      Veiculo         |
+                    | <<Abstract>>         |
+                    +----------------------+
+                    |                      |
+                    +----------------------+
+                    | + exibirInformacoes()|
+                    |      : void = 0      |
+                    | + ~Veiculo()         |
+                    +----------------------+
+                         ▲            ▲
+                         |            |
+              -------------------------------
+              |                             |
++--------------------------+    +--------------------------+
+|          Carro           |    |          Moto            |
++--------------------------+    +--------------------------+
+|                          |    |                          |
++--------------------------+    +--------------------------+
+| + exibirInformacoes()    |    | + exibirInformacoes()    |
+|        : void            |    |        : void            |
++--------------------------+    +--------------------------+
+```
+
+---
+
+# Conceitos de Programação Orientada a Objetos
+
+## Classe Abstrata
+A classe **Veiculo** é abstrata, pois possui um método virtual puro (`= 0`), não podendo ser instanciada diretamente.
+
+## Herança
+As classes **Carro** e **Moto** herdam da classe **Veiculo**, reutilizando sua estrutura.
+
+## Polimorfismo
+Objetos das classes **Carro** e **Moto** são manipulados através de ponteiros do tipo **Veiculo**, permitindo que o método `exibirInformacoes()` execute comportamentos diferentes conforme o objeto.
+
+## Sobrescrita (Override)
+As classes derivadas implementam o método `exibirInformacoes()` utilizando a palavra-chave `override`, substituindo a implementação da classe base.
+
+---
+
+# Resultado Esperado
+
+```
+Carro: fusca azul
+Moto: cg 160 preta
+```
