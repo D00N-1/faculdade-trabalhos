@@ -1,0 +1,114 @@
+# Diagrama de Classe - Aula 14.1
+
+## Descrição
+
+Este programa demonstra o conceito de **Herança Múltipla** em C++.
+
+As classes `Energia` e `Seguranca` representam funcionalidades independentes. A classe `CasaInteligente` herda de ambas, reunindo seus recursos em uma única classe e adicionando o método `status()`.
+
+---
+
+# Classes
+
+## Classe: Energia
+
+### Métodos
+
+| Visibilidade | Método | Retorno |
+|--------------|--------|---------|
+| + | ligar() | void |
+| + | desligar() | void |
+
+---
+
+## Classe: Seguranca
+
+### Métodos
+
+| Visibilidade | Método | Retorno |
+|--------------|--------|---------|
+| + | monitorar() | void |
+
+---
+
+## Classe: CasaInteligente
+
+### Herança
+
+- Herda da classe **Energia**
+- Herda da classe **Seguranca**
+
+### Métodos
+
+| Visibilidade | Método | Retorno |
+|--------------|--------|---------|
+| + | status() | void |
+
+---
+
+# Diagrama UML
+
+```text
+              +----------------------+
+              |       Energia        |
+              +----------------------+
+              |                      |
+              +----------------------+
+              | + ligar() : void     |
+              | + desligar() : void  |
+              +----------------------+
+                       ▲
+                       │
+                       │
++----------------------+----------------------+
+|                                             |
+|             CasaInteligente                 |
++---------------------------------------------+
+|                                             |
++---------------------------------------------+
+| + status() : void                           |
++---------------------------------------------+
+                       ▲
+                       │
+              +----------------------+
+              |      Seguranca       |
+              +----------------------+
+              |                      |
+              +----------------------+
+              | + monitorar() : void |
+              +----------------------+
+```
+
+---
+
+# Conceitos de Programação Orientada a Objetos
+
+## Herança Múltipla
+
+A classe **CasaInteligente** herda características de duas classes diferentes (`Energia` e `Seguranca`), podendo utilizar os métodos de ambas.
+
+## Reutilização de Código
+
+A herança múltipla evita duplicação de código, permitindo reutilizar funcionalidades já implementadas nas classes base.
+
+## Encapsulamento
+
+Cada classe possui responsabilidades específicas:
+
+- **Energia:** controla o fornecimento de energia.
+- **Seguranca:** monitora a segurança da residência.
+- **CasaInteligente:** integra todas as funcionalidades em um único sistema.
+
+## Organização
+
+Esse modelo representa um sistema modular, onde cada classe desempenha uma função específica, facilitando futuras expansões da aplicação.
+
+---
+
+# Resultado Esperado
+
+```text
+Casa inteligente acionada!
+Energia ligada!
+Seguranca monitorada!
+```
