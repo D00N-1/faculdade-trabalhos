@@ -1,0 +1,128 @@
+# Diagrama de Classe - Aula 13.2
+
+## Descrição
+
+Este programa demonstra os conceitos de **Herança**, **Encapsulamento** e **Reutilização de Código** em C++.
+
+A classe `Pessoa` possui informações básicas de uma pessoa, como nome e idade, além dos métodos para cadastro e exibição de dados.
+
+A classe `Aluno` herda de `Pessoa`, adicionando as informações de curso e matrícula, além de sobrescrever os métodos de cadastro e exibição para incluir os novos atributos.
+
+---
+
+# Classes
+
+## Classe: Pessoa
+
+### Atributos
+
+| Visibilidade | Nome | Tipo |
+|--------------|------|------|
+| # | nome | string |
+| # | idade | int |
+
+### Métodos
+
+| Visibilidade | Método | Retorno |
+|--------------|--------|---------|
+| + | cadastrar() | void |
+| + | exibirInformacoes() | void |
+
+---
+
+## Classe: Aluno
+
+### Herança
+
+- Herda da classe **Pessoa**
+
+### Atributos
+
+| Visibilidade | Nome | Tipo |
+|--------------|------|------|
+| - | curso | string |
+| - | matricula | string |
+
+### Métodos
+
+| Visibilidade | Método | Retorno |
+|--------------|--------|---------|
+| + | cadastrar() | void |
+| + | exibirInformacoes() | void |
+
+---
+
+# Diagrama UML
+
+```text
+                    +---------------------------+
+                    |          Pessoa          |
+                    +---------------------------+
+                    | # nome : string          |
+                    | # idade : int            |
+                    +---------------------------+
+                    | + cadastrar() : void     |
+                    | + exibirInformacoes()    |
+                    |          : void          |
+                    +---------------------------+
+                               ▲
+                               │
+                    +---------------------------+
+                    |          Aluno           |
+                    +---------------------------+
+                    | - curso : string         |
+                    | - matricula : string     |
+                    +---------------------------+
+                    | + cadastrar() : void     |
+                    | + exibirInformacoes()    |
+                    |          : void          |
+                    +---------------------------+
+```
+
+---
+
+# Conceitos de Programação Orientada a Objetos
+
+## Herança
+
+A classe **Aluno** herda os atributos e métodos da classe **Pessoa**, reutilizando sua estrutura e adicionando novas funcionalidades.
+
+## Encapsulamento
+
+Os atributos `nome` e `idade` possuem visibilidade **protected**, permitindo acesso pelas classes derivadas. Já `curso` e `matricula` são **private**, sendo acessíveis apenas pela própria classe `Aluno`.
+
+## Sobrescrita de Métodos
+
+A classe **Aluno** redefine os métodos `cadastrar()` e `exibirInformacoes()`, chamando inicialmente os métodos da classe `Pessoa` e, em seguida, adicionando as informações específicas do aluno.
+
+## Reutilização de Código
+
+O uso de `Pessoa::cadastrar()` e `Pessoa::exibirInformacoes()` evita duplicação de código e facilita a manutenção do sistema.
+
+---
+
+# Resultado Esperado
+
+```text
+Nome: João
+Idade: 20
+Curso: ADS
+Matrícula: 2025001
+
+Nome: João
+Idade: 20
+Curso: ADS
+Matrícula: 2025001
+```
+
+---
+
+## Observação
+
+No código enviado existe um pequeno erro de sintaxe. A declaração da classe deve ser:
+
+```cpp
+class Aluno : public Pessoa {
+```
+
+e a chave `}` da classe `Pessoa` deve ser fechada antes da declaração da classe `Aluno`.
