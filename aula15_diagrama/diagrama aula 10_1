@@ -1,0 +1,57 @@
+# Diagrama de Classe - Aula 10.1
+
+## Classe: Conta
+
+### Descrição
+A classe **Conta** representa uma conta bancária, armazenando o número da conta, o nome do titular e o saldo. Ela permite realizar depósitos, saques e exibir os dados da conta.
+
+---
+
+## Atributos
+
+| Visibilidade | Nome | Tipo |
+|--------------|------|------|
+| - | numeroConta | int |
+| - | titular | string |
+| - | saldo | double |
+
+---
+
+## Métodos
+
+| Visibilidade | Método | Retorno |
+|--------------|--------|---------|
+| + | Conta(int numero, string nome, double saldoInicial) | Construtor |
+| + | depositar(double valor) | void |
+| + | sacar(double valor) | void |
+| + | exibirDados() | void |
+
+---
+
+## Diagrama UML
+
+```text
++--------------------------------------+
+|               Conta                  |
++--------------------------------------+
+| - numeroConta : int                  |
+| - titular : string                   |
+| - saldo : double                     |
++--------------------------------------+
+| + Conta(numero:int,                  |
+|         nome:string,                 |
+|         saldoInicial:double)         |
+| + depositar(valor:double) : void     |
+| + sacar(valor:double) : void         |
+| + exibirDados() : void               |
++--------------------------------------+
+```
+
+---
+
+## Conceitos de POO
+
+- **Classe:** Conta
+- **Encapsulamento:** Os atributos são privados (`private`).
+- **Construtor:** Inicializa os dados da conta.
+- **Métodos:** Permitem depositar, sacar e visualizar as informações da conta.
